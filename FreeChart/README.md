@@ -27,4 +27,5 @@ ___
 
 想看看应用的样子？
 看这里：http://www.freechart.win
+如果地址失效请访问：http://freechart.daoapp.io/
 有什么好的建议或者是发现了BUG，请联系我：xtliuke@sina.com
