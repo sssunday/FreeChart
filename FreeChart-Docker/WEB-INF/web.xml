@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5" id="SN_20151023">
+  <display-name>FileShare</display-name>
+  
+  <!-- ActionServlet配置 -->
+  <servlet>
+    <servlet-name>ActionServlet</servlet-name>
+    <servlet-class>web.ActionServlet</servlet-class>
+        <!-- 文件上传路径设置,注意值的最后面一定要加‘/’,否则会报错！ -->
+        <init-param>
+            <param-name>UPLOAD_PATH</param-name>
+            <param-value>/upload/</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActionServlet</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <!-- DBUtil初始化 -->
+  <servlet>
+      <servlet-name>DBUtil</servlet-name>
+      <servlet-class>util.DBUtil</servlet-class>
+        <init-param>
+            <param-name>DB_DRIVER</param-name>
+            <param-value>com.mysql.jdbc.Driver</param-value>
+        </init-param>
+        <init-param>
+            <param-name>DB_URL</param-name>
+            <param-value>jdbc:mysql://10.10.26.58:3306/z6TNtQV4cRnA2hEo</param-value>
+        </init-param>
+        <init-param>
+            <param-name>DB_USER</param-name>
+            <param-value>uJsAHm0tcUB7nF8C</param-value>
+        </init-param>
+        <init-param>
+            <param-name>DB_PASSWD</param-name>
+            <param-value>pDywbA498Bcg5Tx1r</param-value>
+        </init-param>
+      <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <!-- 主页设置 -->
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 错误页面设置 -->
+  <error-page>
+      <exception-type>javax.servlet.ServletException</exception-type>
+      <location>/error.html</location>
+  </error-page>
+  <error-page>
+      <error-code>404</error-code>
+      <location>/error.html</location>
+  </error-page>
+  <error-page>
+      <error-code>500</error-code>
+      <location>/error.html</location>
+  </error-page>
+  
+</web-app>
